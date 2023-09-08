@@ -1,38 +1,55 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
+# Coverage directory used by tools like istanbul
 /coverage
 
-# next.js
+/node_modules
+
+node_modules/
+
+node_modules
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+/.grunt
+
+# TypeScript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Next.js
 /.next/
 /out/
 
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# local env files
-.env*.local
+# Editor directories
+.idea
+.vscode
+*.sw*
 
-# vercel
-.vercel
+# OS metadata
+.DS_Store
+Thumbs.db
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-
-.env
+# Jest
+/jest.config.js
+/jest.setup.js
+/__tests__/
+/__snapshots__/
