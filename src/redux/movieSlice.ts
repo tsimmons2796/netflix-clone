@@ -11,29 +11,29 @@ export interface MovieSliceState {
   isFetchingLocalMovies: boolean;
   isFetchingMovieDataFromTheMovieDb: boolean;
   isFetchingMoviesFromLibrary: boolean;
-  // moviesFromTheMovieDb: any[];
   moviesFromLibrary: MovieDetailInterface[];
   localMovies: LocalMovie[];
+  movieClicked: MovieDetailInterface | null;
 }
 
 const initialState: MovieSliceState = {
   isFetchingLocalMovies: false,
   isFetchingMovieDataFromTheMovieDb: false,
   isFetchingMoviesFromLibrary: false,
-  // moviesFromTheMovieDb: [],
   moviesFromLibrary: [],
   localMovies: [],
+  movieClicked: null,
 };
 
 export const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    // setMoviesFromTheMovieDb: (state, action) => {
-    //   state.moviesFromTheMovieDb = action.payload;
-    // },
     setLocallyRetrievedMovies: (state, action) => {
       state.localMovies = action.payload;
+    },
+    setMovieClicked: (state, action: PayloadAction<MovieDetailInterface>) => {
+      state.movieClicked = action.payload;
     },
   },
   extraReducers(builder) {
@@ -77,5 +77,6 @@ export const movieSlice = createSlice({
   },
 });
 
-export const { setLocallyRetrievedMovies } = movieSlice.actions;
+export const { setLocallyRetrievedMovies, setMovieClicked } =
+  movieSlice.actions;
 export default movieSlice.reducer;

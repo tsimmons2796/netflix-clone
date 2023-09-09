@@ -1,5 +1,7 @@
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { FC } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { MovieDetailInterface } from "../interfaces/movie-interfaces/movie-details.interface";
 
 interface MovieProps {
@@ -7,12 +9,21 @@ interface MovieProps {
 }
 
 export const Movie: FC<MovieProps> = ({ movie }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleClickedMovie = (movieId: string) => {
+    navigate(`/movie/${movieId}`);
+  };
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card
+      onClick={() => handleClickedMovie(movie.id.toString())}
+      sx={{ maxWidth: 345 }}
+    >
       <CardMedia
         component="img"
         height="140"
-        image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} // assuming you're using TMDb images
+        image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
       />
       <CardContent>

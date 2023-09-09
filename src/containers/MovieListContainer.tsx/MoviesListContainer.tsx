@@ -11,7 +11,9 @@ export const MoviesListContainer: FC = () => {
   const libraryMovies = useSelector(selectMoviesFromLibrary);
 
   useEffect(() => {
-    dispatch(fetchMoviesFromLibrary());
+    if (!libraryMovies.length) {
+      dispatch(fetchMoviesFromLibrary());
+    }
   }, [dispatch]);
 
   return (
